@@ -108,11 +108,11 @@ export default function Windows() {
                             sx={{ position: "absolute", top: 8, right: 8 }}
                             size="small"
                         >
-                            <RefreshIcon fontSize="small" />
+                            <RefreshIcon style={{ color: 'white' }} fontSize="small" />
                         </IconButton>
                         <CardContent sx={{ textAlign: "center", height: "100%", p: 1 }}>
                             <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                                Server Status
+                                <Card style={{ backgroundColor: "rgb(51, 0, 51)", color: 'white' }}>Server Status</Card>
                             </Typography>
 
                             {/* Centered Pie Chart */}
@@ -147,17 +147,19 @@ export default function Windows() {
                             sx={{ position: "absolute", top: 8, right: 8 }}
                             size="small"
                         >
-                            <RefreshIcon fontSize="small" />
+                            <RefreshIcon style={{ color: 'white' }} fontSize="small" />
                         </IconButton>
-                        <CardContent
-                            sx={{ textAlign: "center" }}
+                        <CardContent sx={{ textAlign: "center", height: "100%", p: 1 }}
+
                             onClick={() => {
                                 setUptimeFilter(true);
                                 setStatusFilter(null);
                             }}
                         >
                             <Typography variant="subtitle1" gutterBottom>
-                                Uptime &gt; 24h
+
+                                <Card style={{ backgroundColor: "rgb(51, 0, 51)", color: 'white' }}> Uptime &gt; 24h</Card>
+
                             </Typography>
                             <Typography variant="h4">{uptime24Count}</Typography>
                             <Typography variant="body2">servers</Typography>
@@ -205,12 +207,12 @@ export default function Windows() {
                 >
                     <TableHead>
                         <TableRow>
-                            <TableCell>ID</TableCell>
-                            <TableCell>Server</TableCell>
-                            <TableCell>Status</TableCell>
-                            <TableCell>Uptime</TableCell>
-                            <TableCell>Last Login</TableCell>
-                            <TableCell>Actions</TableCell>
+                            <TableCell align="center">ID</TableCell>
+                            <TableCell align="center">Server</TableCell>
+                            <TableCell align="center">Status</TableCell>
+                            <TableCell align="center">Uptime</TableCell>
+                            <TableCell align="center">Last Login</TableCell>
+                            <TableCell align="center">Actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -220,11 +222,11 @@ export default function Windows() {
                                 sx={row.status === "Inactive" ? { background: "#fff5f5", cursor: "pointer" } : { cursor: "pointer" }}
                                 onClick={() => handleRowClick(row)}
                             >
-                                <TableCell>{row.id}</TableCell>
-                                <TableCell sx={{ fontWeight: 500, color: "#1976d2" }}>{row.server}</TableCell>
-                                <TableCell>{row.status}</TableCell>
-                                <TableCell>{row.uptime}</TableCell>
-                                <TableCell>{row.lastLogin}</TableCell>
+                                <TableCell align="center">{row.id}</TableCell>
+                                <TableCell align="center" sx={{ fontWeight: 500, color: "#1976d2" }}>{row.server}</TableCell>
+                                <TableCell align="center">{row.status}</TableCell>
+                                <TableCell align="center">{row.uptime}</TableCell>
+                                <TableCell align="center">{row.lastLogin}</TableCell>
                                 <TableCell align="center">
                                     <IconButton
                                         size="small"
