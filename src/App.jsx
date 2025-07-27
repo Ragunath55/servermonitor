@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react";
-import { Tabs, Tab, Box, Typography, Paper } from "@mui/material";
-
-const initialData = [
-  { id: 1, server: "S1", uptime: "9Hrs", status: "Active" },
-  { id: 2, server: "S2", uptime: "NA", status: "Inactive" },
-  { id: 3, server: "S3", uptime: "25Mins", status: "Active" },
-  { id: 4, server: "S4", uptime: "12Mins", status: "Active" },
-  { id: 5, server: "S5", uptime: "NA", status: "Inactive" },
-  { id: 3, server: "S3", uptime: "25Mins", status: "Active" },
-  { id: 4, server: "S4", uptime: "12Mins", status: "Active" },
-  { id: 5, server: "S5", uptime: "NA", status: "Inactive" },
-];
+import {
+  Tabs,
+  Tab,
+  Box,
+  Typography,
+  Paper
+} from "@mui/material";
+import Windows from "./Servers/windows";
+import Linux from "./Servers/linux";
 
 function TabPanel({ children, value, index }) {
   return (
     <div hidden={value !== index} style={{ padding: 24 }}>
-      {value === index && <Typography>{children}</Typography>}
+      {value === index && <Typography component="div">{children}</Typography>}
     </div>
   );
 }
@@ -48,7 +45,7 @@ function App() {
           justifyContent: 'space-between',
           alignItems: 'center',
           mt: 2,
-          mx: 2, // horizontal margin instead of separate ml
+          mx: 2,
         }}
       >
         <Typography variant="h5" sx={{ color: '#fff' }}>
@@ -67,9 +64,7 @@ function App() {
         alignItems: "center",
         justifyContent: "flex-start"
       }}>
-
         <Paper elevation={6} sx={{ mt: 2, minWidth: 400, width: '98%', borderRadius: 3 }}>
-
           <Tabs
             value={tab}
             onChange={(_, newValue) => setTab(newValue)}
@@ -82,14 +77,14 @@ function App() {
             <Tab label="Linux" />
           </Tabs>
           <TabPanel value={tab} index={0}>
-            Content for Windows
+            {Windows()}
           </TabPanel>
           <TabPanel value={tab} index={1}>
-            Content for Linux
+            {Linux()}
           </TabPanel>
         </Paper>
-      </Box></>
-
+      </Box>
+    </>
   );
 }
 
